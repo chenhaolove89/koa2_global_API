@@ -19,7 +19,7 @@ const User = seq.define('zd_user', {
     type: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        comment: '用户类型 : 0 普通用户 1 会员用户 2 Vip用户 3 admin',
+        comment: '用户类型 : 0 客户 1 普通员工 2 主管 3 admin超级管理员',
         defaultValue: 0
     },
     status: {
