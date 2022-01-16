@@ -5,6 +5,7 @@ const BaseApi = {
     MYSQL_USER: 'root',
     MYSQL_PWD: '123456',
     MYSQL_DB: 'zdsc',
+    JWT_SECRET:'chwb'
 }
 
 module.exports = BaseApi

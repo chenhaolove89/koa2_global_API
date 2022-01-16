@@ -16,14 +16,16 @@ class UserService {
         }
     }
 
-    async getUserInfo(data) {
+    async getUserInfo({ id, user_name, password, type, status }) {
+        const whereOpt = {}
+        id && Object.assign(whereOpt, { id })
+        user_name && Object.assign(whereOpt, { user_name })
+        password && Object.assign(whereOpt, { password })
+        type && Object.assign(whereOpt, { type })
+        status && Object.assign(whereOpt, { status })
         try {
-            const project = await User.findOne({ where: { user_name: data } });
-            if (project === null) {
-                return true
-            } else {
-                return false
-            }
+            const project = await User.findOne({ attributes: ['id', 'user_name', 'password', 'type', 'status'], where: whereOpt });
+            return project ? project.dataValues : null
         } catch (e) {
             return e
         }
