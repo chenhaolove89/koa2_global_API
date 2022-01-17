@@ -15,7 +15,7 @@ class UserService {
             return e
         }
     }
-
+    // 获取用户信息
     async getUserInfo({ id, user_name, password, type, status }) {
         const whereOpt = {}
         id && Object.assign(whereOpt, { id })
@@ -28,6 +28,14 @@ class UserService {
             return project ? project.dataValues : null
         } catch (e) {
             return e
+        }
+    }
+    async patchPassword({id,password}){
+        try {
+            const project = await User.findOne({ where: { id } });
+            project.dataValues
+        }catch (e) {
+            console.log(e)
         }
     }
 }

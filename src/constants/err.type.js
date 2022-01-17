@@ -24,9 +24,24 @@ module.exports = {
         message: '用户不存在',
         data: {}
     },
+    passwordNoChange: {
+        code: '10006',
+        message: '密码未发生改变',
+        data: {}
+    },
     isvalidPassword: {
         code: '10006',
         message: '密码错误',
+        data: {}
+    },
+    tokenExpiredError:{
+        code: '10101',
+        message: 'token已过期',
+        data: {}
+    },
+    isValideToken:{
+        code: '10102',
+        message: '无效的token',
         data: {}
     }
 }

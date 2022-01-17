@@ -8,7 +8,8 @@ const {
     userLengthTest,
     userRegisterError,
     userInexistence,
-    isvalidPassword
+    isvalidPassword,
+    passwordNoChange
 } = require('../constants/err.type')
 
 // 验证账号密码是否为空
@@ -83,8 +84,20 @@ const verifyLogin = async (ctx, next) => {
 
     }
 }
+const verifyPatch = async (ctx,next)=>{
+    try{
+        const {user_name,password} = ctx.request.body
+        if(user_name === ctx.state.user.user_name){
+            const {id} = ctx.state.user
+            userService.patchPassword({id,password})
+        }
+    }catch (e) {
+        console.log(e)
+    }
+}
 module.exports = {
     userValidator,
     verifyUser,
     verifyLogin,
+    verifyPatch,
 }
