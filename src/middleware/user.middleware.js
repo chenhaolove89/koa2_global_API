@@ -21,7 +21,6 @@ const userValidator = async (ctx, next) => {
     // 验证非空
     if (!user_name || !password) {
         return ctx.app.emit('error', userFormateError, ctx)
-
     }
     await next()
 }
@@ -87,9 +86,11 @@ const verifyLogin = async (ctx, next) => {
 const verifyPatch = async (ctx,next)=>{
     try{
         const {user_name,password} = ctx.request.body
-        if(user_name === ctx.state.user.user_name){
-            const {id} = ctx.state.user
-            userService.patchPassword({id,password})
+        if(user_name || password){
+            if(user_name === ctx.state.user.user_name){
+                const {id} = ctx.state.user
+               const res = await userService.patchPassword({id,password})
+            }
         }
     }catch (e) {
         console.log(e)

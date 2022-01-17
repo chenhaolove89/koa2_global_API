@@ -16,6 +16,7 @@ class UserController {
                 user_name,
                 password
             })
+            console.log(res)
             if (res) {
                 ctx.body = {
                     data: {
@@ -35,7 +36,6 @@ class UserController {
         ctx.body.token = JWT.sign(ctx.body.data,JWT_SECRET,{expiresIn: '1d'})
     }
     async patchPassword(ctx,next){
-        console.log(ctx.state.user)
     }
 }
 

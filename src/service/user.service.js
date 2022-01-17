@@ -32,8 +32,8 @@ class UserService {
     }
     async patchPassword({id,password}){
         try {
-            const project = await User.findOne({ where: { id } });
-            project.dataValues
+            const project = await User.create({ where: { id } });
+            console.log(project.dataValues)
         }catch (e) {
             console.log(e)
         }

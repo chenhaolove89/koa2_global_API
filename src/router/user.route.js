@@ -16,7 +16,7 @@ router.post('/register', userValidator, verifyUser, bcrypt.cryptPassword, userCo
 // 用户登录
 router.post('/login', userValidator, verifyLogin, userController.login)
 //修改密码接口
-router.patch('/',auth,verifyPatch,userController.patchPassword)
+router.patch('/',auth,userValidator,bcrypt.cryptPassword,verifyPatch,userController.patchPassword)
 
 
 module.exports = router
