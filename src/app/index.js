@@ -8,6 +8,7 @@ const app = new Koa()
 const errorHandler = require('./errorHandler')
 
 const userRouter = require('../router/user.route')
+const goodRouter = require('../router/goods.route')
 
 // 引入body解析包
 const KoaBody = require('koa-body')
@@ -19,6 +20,8 @@ app.use(KoaBody())
 app.use(cors());
 
 app.use(userRouter.routes())
+app.use(goodRouter.routes())
+
 
 //统一错误处理
 app.on('error',errorHandler)
