@@ -26,11 +26,16 @@ module.exports = {
     },
     passwordNoChange: {
         code: '10006',
-        message: '密码未发生改变',
+        message: '修改密码失败',
+        data: {}
+    },
+    userNameReject: {
+        code: '10007',
+        message: '用户名不匹配',
         data: {}
     },
     isvalidPassword: {
-        code: '10006',
+        code: '10008',
         message: '密码错误',
         data: {}
     },

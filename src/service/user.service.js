@@ -30,10 +30,17 @@ class UserService {
             return e
         }
     }
-    async patchPassword({id,password}){
+    async patchPassword({ id, user_name, password, type, status }){
         try {
-            const project = await User.create({ where: { id } });
-            console.log(project.dataValues)
+            const whereOpt = {id}
+            const newUser = {}
+            user_name && Object.assign(newUser, { user_name })
+            password && Object.assign(newUser, { password })
+            type && Object.assign(newUser, { type })
+            status && Object.assign(newUser, { status })
+            // 根据id修改传入的参数
+            const project= await User.update( newUser , {where:whereOpt });
+                return project[0] > 0 ? true : false
         }catch (e) {
             console.log(e)
         }

@@ -14,6 +14,7 @@ const {
 
 // 验证账号密码是否为空
 const userValidator = async (ctx, next) => {
+    console.log(ctx.request.body)
     const {
         user_name,
         password
@@ -83,22 +84,9 @@ const verifyLogin = async (ctx, next) => {
 
     }
 }
-const verifyPatch = async (ctx,next)=>{
-    try{
-        const {user_name,password} = ctx.request.body
-        if(user_name || password){
-            if(user_name === ctx.state.user.user_name){
-                const {id} = ctx.state.user
-               const res = await userService.patchPassword({id,password})
-            }
-        }
-    }catch (e) {
-        console.log(e)
-    }
-}
+
 module.exports = {
     userValidator,
     verifyUser,
     verifyLogin,
-    verifyPatch,
 }

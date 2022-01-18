@@ -3,7 +3,7 @@ const Router = require('koa-router')
 // 引入响应层中间件
 const userController = require('../controller/user.controller')
 // 引入验证层中间件
-const { userValidator, verifyUser, verifyLogin, verifyPatch} = require('../middleware/user.middleware')
+const { userValidator, verifyUser, verifyLogin} = require('../middleware/user.middleware')
 // 引入加密层中间件
 const bcrypt = require('../middleware/bcrypt')
 // 引入token验证中间件
@@ -16,7 +16,7 @@ router.post('/register', userValidator, verifyUser, bcrypt.cryptPassword, userCo
 // 用户登录
 router.post('/login', userValidator, verifyLogin, userController.login)
 //修改密码接口
-router.patch('/',auth,userValidator,bcrypt.cryptPassword,verifyPatch,userController.patchPassword)
+router.patch('/',auth,userValidator,bcrypt.cryptPassword,userController.patchPassword)
 
 
 module.exports = router

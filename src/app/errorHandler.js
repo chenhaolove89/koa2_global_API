@@ -11,6 +11,9 @@ module.exports = (errorType,ctx) => {
         case'10003':
             status = 406
             break
+        case'10007':
+            status = 400
+            break
         case '10102':
             status = 412
             break
@@ -19,4 +22,5 @@ module.exports = (errorType,ctx) => {
     }
     ctx.status = status
     ctx.body = errorType
+    console.log(errorType,'错误信息!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
 }
