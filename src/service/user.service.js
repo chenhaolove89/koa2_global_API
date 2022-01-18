@@ -1,5 +1,6 @@
 const User = require('../model/user.model')
-
+// 引入加密包
+const bcrypt = require('bcryptjs')
 // 数据库操作层
 class UserService {
     // 写入用户数据
@@ -39,6 +40,7 @@ class UserService {
             type && Object.assign(newUser, { type })
             status && Object.assign(newUser, { status })
             // 根据id修改传入的参数
+            console.log(newUser)
             const project= await User.update( newUser , {where:whereOpt });
                 return project[0] > 0 ? true : false
         }catch (e) {

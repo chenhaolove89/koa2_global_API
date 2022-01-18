@@ -1,15 +1,12 @@
+const fs = require('fs')
 
-// const userRouter = require('./user.route')
+const Router = require('koa-router')
+const router = new Router()
 
-// // 引入koa
-// const Koa = require('koa')
-// // 实例化koa
-// const app = new Koa()
-
-
-// app.use(userRouter.routes())
-
-
-// module.exports = {
-//     userRouter
-// }
+fs.readdirSync(__dirname).forEach(item => {
+    if (item !== 'index.js') {
+        let r = require('./' + item)
+        router.use(r.routes())
+    }
+})
+module.exports = router

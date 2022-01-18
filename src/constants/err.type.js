@@ -39,6 +39,11 @@ module.exports = {
         message: '密码错误',
         data: {}
     },
+    permissionDenied:{
+        code: '10009',
+        message: '无权限,拒绝访问',
+        data: {}
+    },
     tokenExpiredError:{
         code: '10101',
         message: 'token已过期',

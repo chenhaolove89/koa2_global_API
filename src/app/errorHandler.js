@@ -1,6 +1,5 @@
 module.exports = (errorType,ctx) => {
     let status = 500
-    console.log(errorType)
     switch (errorType.code) {
         case '10001':
             status = 400
