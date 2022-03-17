@@ -53,5 +53,15 @@ module.exports = {
         code: '10104',
         message: '文件上传失败',
         data: {}
+    },
+    dataNullErr:{
+        code: '10888',
+        message: '不能传递空的参数',
+        data: {}
+    },
+    searchErr:{
+        code: '100654',
+        message: '查询失败',
+        data: {}
     }
 }

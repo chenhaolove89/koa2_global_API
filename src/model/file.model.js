@@ -8,7 +8,6 @@ const File = seq.define('zd_file', {
     user_id: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
         comment: '用户id'
     },
     type: {
