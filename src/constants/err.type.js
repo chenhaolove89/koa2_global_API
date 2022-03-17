@@ -48,5 +48,10 @@ module.exports = {
         code: '10102',
         message: '无效的token',
         data: {}
+    },
+    fileUploadErr:{
+        code: '10104',
+        message: '文件上传失败',
+        data: {}
     }
 }

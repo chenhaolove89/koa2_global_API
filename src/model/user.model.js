@@ -19,7 +19,7 @@ const User = seq.define('zd_user', {
     type: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        comment: '用户类型 : 0 客户 1 普通员工 2 主管 3 admin超级管理员',
+        comment: '用户类型 : 0 客户 1 普通公会成员 2 公会管理 3 admin超级管理员',
         defaultValue: 0
     },
     status: {
@@ -27,6 +27,42 @@ const User = seq.define('zd_user', {
         allowNull: false,
         comment: "用户状态：0 正常 1 禁用 2 审核中(默认) 3 审核拒绝",
         defaultValue: 2
+    },
+    myContribution: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        comment: "成员贡献值",
+        defaultValue: 0
+    },
+    myCar: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        comment: "成员参加的公会车",
+        defaultValue:'',
+        get(){
+            return this.getDataValue('myCar').split(',');
+        },
+        set(value){
+            return this.setDataValue('myCar',value.join(','))
+        }
+    },
+    myContributionCar:{
+        type: DataTypes.STRING,
+        allowNull: false,
+        comment: "成员参加的公会贡献车车",
+        defaultValue:'',
+        get(){
+            return this.getDataValue('myContributionCar').split(',');
+        },
+        set(value){
+            return this.setDataValue('myContributionCar',value.join(','))
+        }
+    },
+    headImage: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        comment: "成员头像",
+        defaultValue: 'https://img2.baidu.com/it/u=1661624596,544958493&fm=253&fmt=auto&app=138&f=JPEG?w=260&h=280'
     }
 }, {
     // 这是其他模型参数

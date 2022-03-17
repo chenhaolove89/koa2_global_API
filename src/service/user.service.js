@@ -16,15 +16,19 @@ class UserService {
         }
     }
     // 获取用户信息
-    async getUserInfo({ id, user_name, password, type, status }) {
+    async getUserInfo({ id, user_name, password, type, status,myContribution,myCar,myContributionCar,headImage }) {
         const whereOpt = {}
         id && Object.assign(whereOpt, { id })
         user_name && Object.assign(whereOpt, { user_name })
         password && Object.assign(whereOpt, { password })
         type && Object.assign(whereOpt, { type })
         status && Object.assign(whereOpt, { status })
+        myContribution && Object.assign(whereOpt, { myContribution })
+        myCar && Object.assign(whereOpt, { myCar })
+        myContributionCar && Object.assign(whereOpt, { myContributionCar })
+        headImage && Object.assign(whereOpt, { headImage })
         try {
-            const project = await User.findOne({ attributes: ['id', 'user_name', 'password', 'type', 'status'], where: whereOpt });
+            const project = await User.findOne({ attributes: ['id', 'user_name', 'password', 'type', 'status','headImage','myContributionCar','myCar','myContribution'], where: whereOpt });
             return project ? project.dataValues : null
         } catch (e) {
             return e
