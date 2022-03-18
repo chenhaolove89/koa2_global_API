@@ -19,6 +19,9 @@ class FileController {
                 fileUrl,
                 user_id: id
             })
+            if(!fileUrl || fileUrl === ''){
+                return ctx.app.emit('error', dataNullErr, ctx)
+            }
             console.log(res)
             if (res) {
                 ctx.body = {

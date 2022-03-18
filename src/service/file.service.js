@@ -18,7 +18,7 @@ class FileService {
         }
     }
     async searchStrategy({type, user_id,pages={limit:10,offset:0} }){
-        const whereOpt = {}
+        const whereOpt = {readJurisdiction:0}
         user_id && Object.assign(whereOpt, { user_id })
         type && Object.assign(whereOpt, { type })
         try {

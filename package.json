@@ -19,7 +19,8 @@
     "koa-router": "^10.1.1",
     "koa2-cors": "^2.0.6",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.12.5"
+    "sequelize": "^6.12.5",
+    "socket.io": "^4.4.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
